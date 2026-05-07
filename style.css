@@ -1,0 +1,105 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Mobile-First Container */
+.phone-container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 350px; /* Limits width on desktop */
+    height: 100vh;
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+}
+
+/* Number Display */
+.display {
+    height: 80px;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Keypad Grid (3 columns) */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+/* Circular Buttons */
+.digit {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: none;
+    background-color: #e5e5e5;
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.digit:active {
+    background-color: #ccc;
+}
+
+.call-btn {
+    grid-column: 2; /* Starts at column 2 */
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: none;
+    background-color: #4cd964;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Backspace styling */
+.backspace-btn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none; /* Can't click when hidden */
+}
+
+/* Show backspace when this class is added via JS */
+.backspace-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.call-btn:active {
+    opacity: 0.8;
+}
